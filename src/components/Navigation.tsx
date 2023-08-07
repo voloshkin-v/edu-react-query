@@ -1,16 +1,18 @@
 import { Link, NavLink } from 'react-router-dom';
 
+import { ROUTE } from '../types/route.enum';
+
 const Navigation = () => {
 	return (
 		<header className="flex bg-slate-800 text-white p-10 text-3xl justify-between">
-			<Link to="/">
+			<Link to={ROUTE.HOME}>
 				<span>TanStack Query</span>
 			</Link>
 
 			<nav>
 				<ul className="flex gap-10 justify-center">
 					<NavLink
-						to="/"
+						to={ROUTE.HOME}
 						className={({ isActive }) => {
 							return isActive ? 'underline' : '';
 						}}
@@ -19,7 +21,7 @@ const Navigation = () => {
 					</NavLink>
 
 					<NavLink
-						to="super-heroes"
+						to={ROUTE.SUPER_HEROES}
 						className={({ isActive }) => {
 							return isActive ? 'underline' : '';
 						}}
@@ -28,7 +30,7 @@ const Navigation = () => {
 					</NavLink>
 
 					<NavLink
-						to="rq-super-heroes"
+						to={ROUTE.RQ_SUPER_HEROES}
 						className={({ isActive }) => {
 							return isActive ? 'underline' : '';
 						}}

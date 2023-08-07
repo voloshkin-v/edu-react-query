@@ -5,6 +5,8 @@ import axios from 'axios';
 
 import { fetchSuperHeroes } from '../api/fetchSuperHeroes';
 
+import { ROUTE } from '../types/route.enum';
+
 const RQSuperHeroes = () => {
 	const onSuccess = (data: ISuperHero[]) => {
 		console.log('onSuccess after data fatching...');
@@ -40,6 +42,8 @@ const RQSuperHeroes = () => {
 		return <h2>An unexpected error occurred</h2>;
 	}
 
+	console.log(`${ROUTE.RQ_SUPER_HEROES}/${'1'}`);
+
 	return (
 		<>
 			<h2>RQ SuperHero</h2>
@@ -54,7 +58,7 @@ const RQSuperHeroes = () => {
 				{data?.map((item) => (
 					<li key={item.id}>
 						<Link
-							to={`/rq-super-heroes/${item.id}`}
+							to={`${ROUTE.RQ_SUPER_HEROES}/${item.id}`}
 							className="underline"
 						>
 							{item.name}

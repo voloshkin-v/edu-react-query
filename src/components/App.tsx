@@ -8,18 +8,27 @@ import NothingFound from '../pages/NothingFound';
 
 import Navigation from './Navigation';
 
+import { ROUTE } from '../types/route.enum';
+
 const App = () => {
+	console.log(ROUTE.HOME);
 	return (
 		<div className="text-2xl">
 			<Navigation />
 
 			<div className="container p-10">
 				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="super-heroes" element={<SuperHeroes />} />
-					<Route path="rq-super-heroes" element={<RQSuperHeroes />} />
+					<Route path={ROUTE.HOME} element={<Home />} />
 					<Route
-						path="rq-super-heroes/:id"
+						path={ROUTE.SUPER_HEROES}
+						element={<SuperHeroes />}
+					/>
+					<Route
+						path={ROUTE.RQ_SUPER_HEROES}
+						element={<RQSuperHeroes />}
+					/>
+					<Route
+						path={`${ROUTE.RQ_SUPER_HEROES}/:id`}
 						element={<RQSuperHero />}
 					/>
 					<Route path="*" element={<NothingFound />} />
